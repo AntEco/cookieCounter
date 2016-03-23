@@ -1,60 +1,86 @@
 $(document).ready(function(){
 	
-	if("oreos"===""){
+	var oreoCount = Cookies.get("oreos")
+	var whitechipCount = Cookies.get("whitechips")
+	var chocchipCount = Cookies.get("chocchips")
+	
+	if (oreoCount == null){
         Cookies.set("oreos", 0)
     } else {  
         oreos = parseInt("oreos")
     }
-    Cookies.set("oreos", 0)
+    // Cookies.set("oreos", 0)
 
-    if("whitechips"===""){
+    if (whitechipCount == null){
         Cookies.set("whitechips", 0)
-    } else {
+    } else {  
         whitechips = parseInt("whitechips")
     }
-    Cookies.set("whitechips", 0)
+  
 
-
-    if("chocchips"===""){
+    if (chocchipCount == null){
         Cookies.set("chocchips", 0)
-    } else {
+    } else {  
         chocchips = parseInt("chocchips")
     }
-	Cookies.set("chocchips", 0)
 
 
-	var oreoCount = Cookies.get("oreos")
-	var whitechipCount = Cookies.get("whitechips")
-	var chocchipCount = Cookies.get("chocchips")
+	
 
 
-	$("#oreo").click(function(){
-		oreoCount++
-		Cookies.set("oreos", oreoCount)
+	$("#oreobutton").click(function(){
+		if (oreoCount === ""){
+        Cookies.set("oreos", 0)}
+        else{
+			oreoCount++
+			Cookies.set("oreos", oreoCount)}
+			$("#oreonum").text("You have " + oreoCount + " oreo sleeves!")
 	})
 	
 	$("#removeoreo").click(function(){
+		oreoCount = 0
 		Cookies.set("oreos", 0)
+		$("#oreonum").text("You have " + oreoCount + " oreo sleeves!")
 	})
 
-	$("#whitechip").click(function(){
-		whitechipCount++
-		Cookies.set("whitechips", whitechipCount)
+	$("#whitechipbutton").click(function(){
+		if (whitechipCount === ""){
+        Cookies.set("whitechips", 0)}
+        else{
+			whitechipCount++
+			Cookies.set("whitechips", whitechipCount)}
+			$("#whitenum").text("You have " + whitechipCount + " White Chip Macademia nut cookies!")
 	})
-
+	
 	$("#removewc").click(function(){
+		whitechipCount = 0
 		Cookies.set("whitechips", 0)
+		$("#whitenum").text("You have " + whitechipCount + " White Chip Macademia nut cookies!")
+
 	})
 
-	$("#chocchip").click(function(){
-		chocchipCount++
-		Cookies.set("chocchips", chocchipCount)
+	$("#chocchipbutton").click(function(){
+		if (chocchipCount === ""){
+        Cookies.set("chocchips", 0)}
+        else{
+			chocchipCount++
+			Cookies.set("chocchips", chocchipCount)}
+			$("#chocnum").text("You have " + chocchipCount + " chocolate chip cookies!")
 	})
 	
 	$("#removecc").click(function(){
+		chocchipCount = 0
 		Cookies.set("chocchips", 0)
+		$("#chocnum").text("You have " + chocchipCount + " chocolate chip cookies!")
 	})
 
-	document.getElementById("cookiecountwc").innerHTML = Cookies.get("whitechips")
+	
+
+	$("#whitenum").text("You have " + whitechipCount + " White Chip Macademia nut cookies!")
+
+	$("#chocnum").text("You have " + chocchipCount + " chocolate chip cookies!")
+
+
+	$("#oreonum").text("You have " + oreoCount + " oreo sleeves!")
 
 })
