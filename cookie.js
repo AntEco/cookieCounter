@@ -9,7 +9,6 @@ $(document).ready(function(){
     } else {  
         oreos = parseInt("oreos")
     }
-    // Cookies.set("oreos", 0)
 
     if (whitechipCount == null){
         Cookies.set("whitechips", 0)
